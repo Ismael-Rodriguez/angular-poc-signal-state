@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, computed } from '@angular/core'
 import { signalState, patchState } from '@ngrx/signals';
 
 interface Hero {
@@ -16,6 +16,12 @@ class ApiCtx {
 
   state = this._state
   hero = this._hero
+  powers = this._hero.powers
+
+  myComputed = computed(()=>{
+    // return Object.assign({}, this._state(), {name: this._hero().name})
+    return Object.assign({}, this._state(), {name: this._hero.name()})
+  })
 
   setHero(hero: Hero){
     patchState(this._hero, () => hero);

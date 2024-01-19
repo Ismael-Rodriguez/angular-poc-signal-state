@@ -71,6 +71,9 @@ export class AppComponent {
 
     this.mySignal.set('saludos cordiales')
 
+    debugger
+    console.log(this.apiCtx.myComputed())
+
     // setInterval(()=>{
     //   this.mySignal.update(prev => prev+1)
     // }, 1000)
